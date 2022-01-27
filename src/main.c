@@ -1,6 +1,7 @@
 #ifdef PLATFORM_LINUX
 #define BATTERY_FILE "/sys/class/power_supply/BAT0/capacity"
 #else
+#define BATTERY_FILE "/dev/null"
 #error Only Linux is supported
 #endif /* PLATFORM_LINUX */
 
@@ -19,9 +20,9 @@ char* get_date() {
 }
 
 char* get_battery() {
-    static char battery_level[4];
+    static char battery_level[5];
 
-    char battery[3];
+    char battery[4];
     FILE *battery_f = fopen(BATTERY_FILE, "r");
 
     fgets(battery, sizeof(battery), battery_f);
@@ -33,8 +34,6 @@ char* get_battery() {
 }
 
 int main(void) {
-    char output[80];
-
     fprintf(stdout, "%s | %s", get_date(), get_battery());
 
     return 0;
