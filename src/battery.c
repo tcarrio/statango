@@ -1,4 +1,4 @@
-#ifdef PLATFORM_LINUX
+#ifdef __linux__
 #define BATTERY_FILE "/sys/class/power_supply/BAT0/capacity"
 #else
 #define BATTERY_FILE "/dev/null"

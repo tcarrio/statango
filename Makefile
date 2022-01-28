@@ -1,5 +1,5 @@
 TARGET = statango
-LIBS = -lm  -D PLATFORM_LINUX
+LIBS = -lm
 CC = gcc
 CFLAGS = -g -Wall
 OUTDIR = compiled
