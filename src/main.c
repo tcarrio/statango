@@ -7,12 +7,12 @@
 #include "battery.c"
 #include "date.c"
 
-static const int timer_seconds = TIMER_SECONDS;
-
 int main(void) {
     while (1) {
         fprintf(stdout, "%s | %s", get_date(), get_battery());
-        sleep(timer_seconds);
+        fflush(stdout);
+        sleep(1);
+        fprintf(stdout, "\n");
     }
 
     return 0;
